@@ -5,7 +5,7 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop({ required: true })
+  @Prop({ required: true, minlength: 3 })
   name: string;
 
   @Prop({
@@ -18,6 +18,6 @@ export class User {
   })
   email: string;
 
-  @Prop({ required: true, type: [String] })
+  @Prop({ type: [String] })
   subscribedTokens: string[];
 }
