@@ -15,9 +15,12 @@ export class User {
         email,
       );
     },
+    unique: true
   })
   email: string;
 
   @Prop({ type: [String] })
   subscribedTokens: string[];
 }
+
+export const UserSchema = SchemaFactory.createForClass(User);
