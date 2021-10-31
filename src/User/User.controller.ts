@@ -1,11 +1,20 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { User } from 'src/schemas/User.schema';
+import { UserService } from './User.service';
 
-@Controller()
+@Controller('user')
 export class UserController {
-  constructor() {}
+  constructor(private userService: UserService) {}
 
-  @Get()
-  getHello(): string {
-    return "Hello World"
+  @Post()
+  async createUser(
+    @Body()
+    createUserDto: {
+      name: string;
+      email: string;
+      subscribedTokens: string[];
+    },
+  ): Promise<User> {
+    return await this.userService.createUser(createUserDto);
   }
 }
