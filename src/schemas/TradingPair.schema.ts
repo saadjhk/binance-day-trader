@@ -8,12 +8,6 @@ export class TradingPair {
     @Prop({
         required: true,
         unique: true,
-        validate: function (symbol: string) {
-            if (symbol.includes('USDT')) {
-                return true;
-            }
-            return false;
-        },
     })
     symbol: string;
 
@@ -43,4 +37,4 @@ export class TradingPair {
     quotePrecision: number;
 }
 
-export const UserSchema = SchemaFactory.createForClass(TradingPair);
+export const TradingPairSchema = SchemaFactory.createForClass(TradingPair);

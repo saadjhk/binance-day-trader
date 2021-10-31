@@ -28,6 +28,8 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/schedule": "^1.0.1",
     "@types/cron": "^1.7.3",
+    "@types/lodash": "^4.14.176",
+    "axios": "^0.24.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.0.12",
     "reflect-metadata": "^0.1.13",
