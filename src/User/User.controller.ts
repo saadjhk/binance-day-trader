@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Put } from '@nestjs/common';
 import { User } from 'src/schemas/User.schema';
 import { UserService } from './User.service';
 
@@ -16,5 +16,15 @@ export class UserController {
     },
   ): Promise<User> {
     return await this.userService.createUser(createUserDto);
+  }
+
+  @Put('/token/subscribe')
+  async subscribeToken(
+    @Body() subscriptionDto: {
+      email: string;
+      token: string;
+    }
+  ): Promise<string[]> {
+    return await this.userService.subscribeToken(subscriptionDto.email, subscriptionDto.token)
   }
 }
