@@ -35,6 +35,14 @@ export class TradingPair {
         required: true
     })
     quotePrecision: number;
+
+    @Prop({
+        default: Date.now()
+    })
+    createdOn: number;
+
+    @Prop()
+    updatedOn: number;
 }
 
 export const TradingPairSchema = SchemaFactory.createForClass(TradingPair);

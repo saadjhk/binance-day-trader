@@ -1,21 +1,17 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ScheduleModule } from '@nestjs/schedule';
-import { TradingPair, TradingPairSchema } from 'src/schemas/TradingPair.schema';
 import { BinanceService } from './Binance.service';
-import { TradingPairArchivalService } from './TradingPairArchival.service';
-
+import { CandleStickArchivalScheduler } from '../CandleStick/CandleStickArchival.producer';
+import { TradingPairArchivalService } from '../TradingPair/TradingPairArchival.service';
 @Module({
     imports: [
-        MongooseModule.forFeature([
-            {
-                name: TradingPair.name,
-                schema: TradingPairSchema,
-            },
-        ]),
         ScheduleModule.forRoot(),
     ],
     controllers: [],
-    providers: [BinanceService, TradingPairArchivalService],
+    providers: [
+        BinanceService,
+        TradingPairArchivalService,
+        CandleStickArchivalScheduler,
+    ],
 })
 export class BinanceModule {}

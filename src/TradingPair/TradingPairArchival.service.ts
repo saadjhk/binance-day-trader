@@ -5,8 +5,8 @@ import { Model } from 'mongoose';
 import {
     TradingPair,
     TradingPairDocument,
-} from 'src/schemas/TradingPair.schema';
-import { BinanceService } from './Binance.service';
+} from 'src/TradingPair/TradingPair.schema';
+import { BinanceService } from '../Binance/Binance.service';
 import * as lodash from 'lodash';
 
 @Injectable()
